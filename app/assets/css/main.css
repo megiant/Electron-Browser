@@ -1,0 +1,262 @@
+@font-face {
+  font-family: Roboto;
+  src: url(fonts/Roboto/Roboto-Regular.ttf); }
+* {
+  padding: 0;
+  margin: 0; }
+
+body {
+  background-color: #F5F5F5;
+  color: #3F3844;
+  font-family: Roboto; }
+
+.topbar {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: fixed;
+  -webkit-user-select: none;
+  background-color: #E6E6E6; }
+  .topbar .topbar-titlebar {
+    width: 100%;
+    height: 35px;
+    -webkit-app-region: drag; }
+    .topbar .topbar-titlebar .topbar-titlebar-tabs {
+      width: 85%;
+      box-sizing: border-box;
+      height: 35px;
+      float: left;
+      display: -webkit-flex;
+      flex-direction: row; }
+      .topbar .topbar-titlebar .topbar-titlebar-tabs .tab {
+        width: 15vw;
+        height: 100%;
+        flex-shrink: 2;
+        display: -webkit-flex;
+        flex-direction: row;
+        -webkit-app-region: no-drag;
+        border-right: 2px solid #DCDCDC;
+        background-color: #E6E6E6;
+        color: #2c2c2c;
+        transition: background 0.3s ease-in-out; }
+        .topbar .topbar-titlebar .topbar-titlebar-tabs .tab .tab-name {
+          display: -webkit-inline-box;
+          flex-shrink: 2;
+          width: 93%;
+          box-sizing: border-box;
+          overflow: hidden;
+          height: 35px;
+          line-height: 35px;
+          padding-left: 10px;
+          font-size: 13px;
+          text-align: left; }
+        .topbar .topbar-titlebar .topbar-titlebar-tabs .tab .tab-exit {
+          display: none;
+          flex-shrink: 2;
+          height: 35px;
+          line-height: 35px;
+          padding: 0px 10px;
+          box-sizing: border-box;
+          text-align: center; }
+          .topbar .topbar-titlebar .topbar-titlebar-tabs .tab .tab-exit polygon {
+            fill: #b6b7b8;
+            transition: fill 0.3s ease-in-out; }
+          .topbar .topbar-titlebar .topbar-titlebar-tabs .tab .tab-exit svg {
+            display: -webkit-box;
+            height: 35px;
+            line-height: 35px;
+            margin: 0 auto; }
+          .topbar .topbar-titlebar .topbar-titlebar-tabs .tab .tab-exit:hover {
+            cursor: pointer; }
+            .topbar .topbar-titlebar .topbar-titlebar-tabs .tab .tab-exit:hover polygon {
+              fill: #DD5454; }
+        .topbar .topbar-titlebar .topbar-titlebar-tabs .tab:hover {
+          cursor: pointer;
+          background-color: #EEEEEE;
+          color: #000000;
+          z-index: 5; }
+          .topbar .topbar-titlebar .topbar-titlebar-tabs .tab:hover .tab-exit {
+            display: -webkit-inline-box; }
+      .topbar .topbar-titlebar .topbar-titlebar-tabs .tab:last-child {
+        border: none !important; }
+      .topbar .topbar-titlebar .topbar-titlebar-tabs .active {
+        background-color: #FFFFFF; }
+        .topbar .topbar-titlebar .topbar-titlebar-tabs .active:hover {
+          cursor: default;
+          background-color: #FFFFFF; }
+      .topbar .topbar-titlebar .topbar-titlebar-tabs .addtab {
+        height: 35px;
+        line-height: 35px;
+        padding: 0px 10px;
+        -webkit-app-region: no-drag;
+        transition: background 0.3s ease-in-out; }
+        .topbar .topbar-titlebar .topbar-titlebar-tabs .addtab path {
+          fill: #b6b7b8;
+          transition: fill 0.3s ease-in-out; }
+        .topbar .topbar-titlebar .topbar-titlebar-tabs .addtab:hover {
+          cursor: pointer;
+          background-color: #c7c7c7; }
+          .topbar .topbar-titlebar .topbar-titlebar-tabs .addtab:hover path {
+            fill: #727272; }
+    .topbar .topbar-titlebar .topbar-titlebar-events {
+      height: 35px;
+      float: right; }
+      .topbar .topbar-titlebar .topbar-titlebar-events .events-minimalize {
+        display: block;
+        font-size: 20px;
+        padding: 0px 10px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        float: left;
+        -webkit-app-region: no-drag;
+        cursor: pointer;
+        margin: 0px 3px;
+        transition: background 0.3s ease-in-out; }
+        .topbar .topbar-titlebar .topbar-titlebar-events .events-minimalize rect {
+          fill: #787878;
+          transition: fill 0.3s ease-in-out; }
+        .topbar .topbar-titlebar .topbar-titlebar-events .events-minimalize:hover {
+          background-color: #EEEEEE; }
+          .topbar .topbar-titlebar .topbar-titlebar-events .events-minimalize:hover rect {
+            fill: #2c2c2c; }
+      .topbar .topbar-titlebar .topbar-titlebar-events .events-maxsize {
+        display: block;
+        font-size: 20px;
+        padding: 0px 10px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        float: left;
+        -webkit-app-region: no-drag;
+        cursor: pointer;
+        padding: 0px 15px;
+        margin: 0px 3px;
+        transition: background 0.3s ease-in-out; }
+        .topbar .topbar-titlebar .topbar-titlebar-events .events-maxsize path {
+          fill: #787878;
+          transition: stroke 0.3s ease-in-out; }
+        .topbar .topbar-titlebar .topbar-titlebar-events .events-maxsize:hover {
+          background-color: #EEEEEE; }
+          .topbar .topbar-titlebar .topbar-titlebar-events .events-maxsize:hover path {
+            fill: #2c2c2c; }
+      .topbar .topbar-titlebar .topbar-titlebar-events .events-close {
+        display: block;
+        font-size: 20px;
+        padding: 0px 10px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        float: left;
+        -webkit-app-region: no-drag;
+        cursor: pointer;
+        padding: 0px 15px;
+        margin-left: 0.3vh;
+        transition: background 0.3s ease-in-out; }
+        .topbar .topbar-titlebar .topbar-titlebar-events .events-close polygon {
+          fill: #787878;
+          transition: fill 0.3s ease-in-out; }
+        .topbar .topbar-titlebar .topbar-titlebar-events .events-close:hover {
+          background-color: #DD5454; }
+          .topbar .topbar-titlebar .topbar-titlebar-events .events-close:hover polygon {
+            fill: #ffffff; }
+  .topbar .navbar {
+    width: 100%;
+    height: 43px;
+    background: #FFFFFF;
+    display: -webkit-flex;
+    flex-direction: row;
+    border-bottom: 0.1vw solid #FBFBFB; }
+    .topbar .navbar .navbar-pagecontrol {
+      height: 100%;
+      line-height: 43px; }
+      .topbar .navbar .navbar-pagecontrol .pagecontrol-back {
+        display: -webkit-box;
+        float: left;
+        padding: 0px 5px;
+        margin: 0px 5px; }
+        .topbar .navbar .navbar-pagecontrol .pagecontrol-back path {
+          fill: #2c2c2c;
+          transition: fill 0.3s ease-in-out; }
+        .topbar .navbar .navbar-pagecontrol .pagecontrol-back svg {
+          display: -webkit-box;
+          height: 43px;
+          line-height: 43px;
+          margin: 0 auto; }
+        .topbar .navbar .navbar-pagecontrol .pagecontrol-back:hover {
+          cursor: pointer; }
+          .topbar .navbar .navbar-pagecontrol .pagecontrol-back:hover path {
+            fill: #b6b7b8; }
+      .topbar .navbar .navbar-pagecontrol .pagecontrol-next {
+        display: -webkit-box;
+        float: left;
+        padding: 0px 5px;
+        margin: 0px 5px; }
+        .topbar .navbar .navbar-pagecontrol .pagecontrol-next path {
+          fill: #2c2c2c;
+          transition: fill 0.3s ease-in-out; }
+        .topbar .navbar .navbar-pagecontrol .pagecontrol-next svg {
+          display: -webkit-box;
+          height: 43px;
+          line-height: 43px;
+          margin: 0 auto; }
+        .topbar .navbar .navbar-pagecontrol .pagecontrol-next:hover {
+          cursor: pointer; }
+          .topbar .navbar .navbar-pagecontrol .pagecontrol-next:hover path {
+            fill: #b6b7b8; }
+      .topbar .navbar .navbar-pagecontrol .pagecontrol-refresh {
+        display: -webkit-box;
+        float: left;
+        padding: 0px 5px;
+        margin: 0px 5px; }
+        .topbar .navbar .navbar-pagecontrol .pagecontrol-refresh path {
+          fill: #2c2c2c;
+          transition: fill 0.3s ease-in-out; }
+        .topbar .navbar .navbar-pagecontrol .pagecontrol-refresh svg {
+          display: -webkit-box;
+          height: 43px;
+          line-height: 43px;
+          margin: 0 auto; }
+        .topbar .navbar .navbar-pagecontrol .pagecontrol-refresh:hover {
+          cursor: pointer; }
+          .topbar .navbar .navbar-pagecontrol .pagecontrol-refresh:hover path {
+            fill: #b6b7b8; }
+    .topbar .navbar .searchbar {
+      display: -webkit-box;
+      margin-top: 3.5px;
+      margin-left: 2%;
+      height: 36px;
+      width: 83%;
+      border: none;
+      font-size: 18px;
+      background: none;
+      transition: all 0.3s ease-in-out;
+      color: #8f8f8f; }
+    .topbar .navbar .searchbar::placeholder {
+      color: #C6C6C6; }
+    .topbar .navbar .searchbar:focus {
+      outline: none;
+      color: #5f5f5f; }
+    .topbar .navbar .settings-icon {
+      display: -webkit-box;
+      position: absolute;
+      right: 0;
+      padding: 0px 5px;
+      margin: 0px 5px; }
+      .topbar .navbar .settings-icon path {
+        fill: #2c2c2c;
+        transition: fill 0.3s ease-in-out; }
+      .topbar .navbar .settings-icon svg {
+        display: -webkit-box;
+        height: 43px;
+        line-height: 43px;
+        margin: 0 auto; }
+      .topbar .navbar .settings-icon:hover {
+        cursor: pointer; }
+        .topbar .navbar .settings-icon:hover path {
+          fill: #b6b7b8; }
+
+.browsercontent {
+  padding-top: 86px; }
+
+/*# sourceMappingURL=main.css.map */

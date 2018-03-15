@@ -1,0 +1,380 @@
+@import 'colors';
+@import 'normalize';
+
+
+.topbar
+{
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    position: fixed;
+    -webkit-user-select: none;
+    
+    background-color: $topbar-background;
+
+    // TABS AND WINDOW EVENTS
+    .topbar-titlebar
+    {
+        width: 100%;
+        height: 35px;
+        -webkit-app-region: drag;
+
+        // TABS
+        .topbar-titlebar-tabs
+        {
+            width: 85%;
+            box-sizing: border-box;
+            height: 35px;
+            float: left;
+
+            display: -webkit-flex;
+            flex-direction: row;
+
+            // TAB
+            .tab
+            {
+                width: 15vw;
+                height: 100%;
+                flex-shrink: 2;
+                display: -webkit-flex;
+                flex-direction: row;
+                -webkit-app-region: no-drag;
+
+                border-right: 2px solid $tab-border;
+
+                background-color: $tab-background;
+                color: $tab-color;
+                transition: background 0.3s ease-in-out;
+
+                .tab-name
+                {
+                    display: -webkit-inline-box;
+                    flex-shrink: 2;
+                    width: 93%;
+                    box-sizing: border-box;
+                    overflow: hidden;
+
+                    height: 35px;
+                    line-height: 35px;
+                    padding-left:10px;
+                    font-size: 13px;
+                    text-align: left;
+                }
+
+                .tab-exit
+                {
+                    display: none;
+                    flex-shrink: 2;
+                    height: 35px;
+                    line-height: 35px;
+
+                    padding: 0px 10px;
+                    box-sizing: border-box;
+                    text-align: center;
+
+                    polygon { fill: $tab-exit-color; transition: fill 0.3s ease-in-out; }
+
+                    svg{
+                        display: -webkit-box;
+                        height: 35px;
+                        line-height: 35px;
+                        margin:0 auto;
+                    }
+
+                    &:hover{
+                        cursor: pointer;
+                        polygon { fill: $tab-exit-hover-color; }
+                    }
+                }
+
+
+                &:hover{
+                    cursor: pointer;
+                    background-color: $tab-hover-background;
+                    color: $tab-active-color;
+                    z-index: 5;
+                    .tab-exit{ display: -webkit-inline-box; }
+                }
+            } // END TAB
+
+            .tab:last-child {
+                border: none!important;
+            }
+
+            // ACTIVE TAB
+            .active{
+                // margin-top: 2px;
+                background-color: $tab-active-background;
+                // border: none;
+                &:hover{
+                    cursor: default;
+                    background-color: $tab-active-background;
+                }
+            }
+
+            //  ADD TAB
+            .addtab
+            {
+                height: 35px;
+                line-height: 35px;
+                padding: 0px 10px;
+
+                -webkit-app-region: no-drag;
+                path{ fill: $addtab-color; transition: fill 0.3s ease-in-out; }
+                transition: background 0.3s ease-in-out;
+
+                &:hover{
+                    cursor: pointer;
+                    background-color: $addtab-hover-background;
+                    path{ fill: $addtab-hover-color; }
+                }
+            }
+        } // END TABS
+
+
+        // EVENTS
+        .topbar-titlebar-events
+        {
+            height: 35px;
+            float: right;            
+
+            .events-minimalize
+            {
+                display: block;
+                font-size:20px;
+                padding: 0px 10px;
+                height: 35px;
+                line-height: 35px;
+
+                
+                text-align: center;
+                float:left;
+                -webkit-app-region: no-drag;
+                
+
+                cursor: pointer;
+                margin: 0px 3px;
+                rect { fill: $events-color; transition: fill 0.3s ease-in-out; }
+                transition:background 0.3s ease-in-out;
+
+                &:hover
+                {
+                    background-color: $events-hover-bg;
+                    rect { fill: $events-hover-color; }
+                }
+            }
+
+
+            .events-maxsize
+            {
+                display: block;
+                font-size:20px;
+                padding: 0px 10px;
+                height: 35px;
+                line-height: 35px;
+
+                
+                text-align: center;
+                float:left;
+                -webkit-app-region: no-drag;
+                
+
+                cursor: pointer;
+                padding: 0px 15px;
+                margin: 0px 3px;
+                transition:background 0.3s ease-in-out;
+                path{ fill: $events-color; transition: stroke 0.3s ease-in-out; }
+
+                &:hover
+                {
+                    background-color: $events-hover-bg;
+                    path{ fill: $events-hover-color; }
+                }
+            }
+
+
+            .events-close
+            {
+                display: block;
+                font-size:20px;
+                padding: 0px 10px;
+                height: 35px;
+                line-height: 35px;
+
+                
+                text-align: center;
+                float:left;
+                -webkit-app-region: no-drag;
+                
+
+                cursor: pointer;
+                padding: 0px 15px;
+                margin-left: 0.3vh;
+                transition:background 0.3s ease-in-out;
+                polygon { fill: $events-color; transition: fill 0.3s ease-in-out; }
+
+                &:hover
+                {
+                    background-color: $events-close-hover-bg;
+                    polygon { fill: $events-close-hover-color; }
+                }
+            }
+
+        } // END EVENS
+    } // END TITLEBAR
+
+
+
+    // NAVIGATION
+    .navbar
+    {
+        width: 100%;
+        height: 43px;
+        background: $navbar-background;
+
+        display: -webkit-flex;
+        flex-direction: row;
+
+        // border-top: 0.1vw solid $navbar-top-border;
+        border-bottom: 0.1vw solid $navbar-bottom-border;
+
+
+
+        .navbar-pagecontrol
+        {
+            height: 100%;
+            line-height: 43px;
+
+            .pagecontrol-back
+            {
+                display: -webkit-box;
+                float: left;
+                padding: 0px 5px;
+
+                margin: 0px 5px;
+
+                path { fill: $pagecontrol-color; transition: fill 0.3s ease-in-out; }
+
+                svg{
+                        display: -webkit-box;
+                        height: 43px;
+                        line-height: 43px;
+                        margin:0 auto;
+                }
+
+                &:hover{
+                    cursor: pointer;
+                    path { fill: $pagecontrol-hover-color; }
+                }
+            }
+
+            .pagecontrol-next
+            {
+                display: -webkit-box;
+                float: left;
+                padding: 0px 5px;
+
+                margin: 0px 5px;
+                
+                path { fill: $pagecontrol-color; transition: fill 0.3s ease-in-out; }
+
+                svg{
+                        display: -webkit-box;
+                        height: 43px;
+                        line-height: 43px;
+                        margin:0 auto;
+                }
+
+                &:hover{
+                    cursor: pointer;
+                    path { fill: $pagecontrol-hover-color; }
+                }
+            }
+
+            .pagecontrol-refresh
+            {
+                display: -webkit-box;
+                float: left;
+                padding: 0px 5px;
+
+                margin: 0px 5px;   
+                
+                path { fill: $pagecontrol-color; transition: fill 0.3s ease-in-out; }
+
+                svg{
+                        display: -webkit-box;
+                        height: 43px;
+                        line-height: 43px;
+                        margin:0 auto;
+                }
+
+                &:hover{
+                    cursor: pointer;
+                    path { fill: $pagecontrol-hover-color; }
+                }
+            }
+        } // END PAGECONTROL
+
+        .searchbar
+        {
+            display: -webkit-box;
+            margin-top: 3.5px;
+            margin-left: 2%;
+            height: 36px;
+            width: 83%;
+            border:none;
+
+            font-size: 18px;
+            background:none;
+
+            transition: all 0.3s ease-in-out;
+            color: $searchbar-color;
+        }
+
+        .searchbar::placeholder
+        {
+            color: $searchbar-placeholder-color;
+        }
+
+        .searchbar:focus
+        {
+            outline: none;
+            color: $searchbar-focus-color;
+        }
+
+
+        .settings-icon
+        {
+            display: -webkit-box;
+            position: absolute;
+            right: 0;
+            padding: 0px 5px;
+
+            margin: 0px 5px;
+            
+            path { fill: $settings-color; transition: fill 0.3s ease-in-out; }
+
+            svg{
+                display: -webkit-box;
+                height: 43px;
+                line-height: 43px;
+                margin:0 auto;
+            }
+
+            &:hover{
+                cursor: pointer;
+                path { fill: $settings-hover-color; }
+            }
+        }
+
+
+    } // END NAVBAR
+} // End TOPBAR
+
+
+// BROWSER CONTENT
+.browsercontent
+{
+    padding-top: 86px;
+}
